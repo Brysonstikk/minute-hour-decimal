@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minutes to Decimal Hours</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">Minutes to Decimal Hours Converter</h2>
+    <input type="number" id="minutes" placeholder="Enter minutes"
+      class="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <button onclick="convert()"
+      class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300">Convert</button>
+    <p id="result" class="mt-4 text-center text-lg font-medium text-gray-700"></p>
+  </div>
+
+  <script>
+    function convert() {
+      const minutes = parseFloat(document.getElementById('minutes').value);
+      if (isNaN(minutes)) {
+        document.getElementById('result').textContent = 'Please enter a valid number.';
+        return;
+      }
+      const decimalHours = (minutes / 60).toFixed(2);
+      document.getElementById('result').textContent = `${minutes} minutes = ${decimalHours} hours`;
+    }
+  </script>
+</body>
+</html>
